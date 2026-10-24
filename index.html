@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shat-Drishti — 6 Aankhein</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="homeScreen">
+  <div class="home-wrap">
+    <div class="brand">
+      <div class="brand-icon">👁️</div>
+      <h1>SHAT-DRISHTI</h1>
+      <p class="sub">6 Chakras — One Life</p>
+    </div>
+    <p class="home-note">AI-Powered Accessibility Suite. Tap any Chakra to start.</p>
+
+    <div class="chakra-list">
+      <div class="chakra-item" data-go="aura">
+        <span class="ci">🌬️</span>
+        <div><b>AURA</b><small>Silent Watchman (Face Detection)</small></div>
+        <span class="arrow">›</span>
+      </div>
+      <div class="chakra-item" data-go="smriti">
+        <span class="ci">🧠</span>
+        <div><b>SMRITI</b><small>Memory Map (Voice Search)</small></div>
+        <span class="arrow">›</span>
+      </div>
+      <div class="chakra-item" data-go="sparsh">
+        <span class="ci">📳</span>
+        <div><b>SPARSH</b><small>Haptic Feedback (Vibration)</small></div>
+        <span class="arrow">›</span>
+      </div>
+      <div class="chakra-item" data-go="saathi">
+        <span class="ci">❤️</span>
+        <div><b>SAATHI</b><small>Emotion Radar</small></div>
+        <span class="arrow">›</span>
+      </div>
+      <div class="chakra-item" data-go="disha">
+        <span class="ci">🧭</span>
+        <div><b>DISHA</b><small>Micro Navigation</small></div>
+        <span class="arrow">›</span>
+      </div>
+      <div class="chakra-item" data-go="sangam">
+        <span class="ci">🌐</span>
+        <div><b>SANGAM</b><small>Community & Bridge</small></div>
+        <span class="arrow">›</span>
+      </div>
+    </div>
+
+    <p class="foot">Powered by AI · IGRIS Core Interface</p>
+  </div>
+</div>
+
+<div id="appScreen" class="hidden">
+  <div class="topbar">
+    <button id="backBtn">‹</button>
+    <h2 id="screenTitle">Chakra</h2>
+    <span></span>
+  </div>
+
+  <!-- AURA -->
+  <section id="aura" class="screen">
+    <div class="screen-body">
+      <div class="lead-row">
+        <p class="lead">Silent Watchman. Camera ON, muh band. Sirf <b>scene change</b> par bolta hai.</p>
+        <button id="voiceToggle" class="mic-btn">🎤 Listen</button>
+      </div>
+
+      <div class="cam-box" id="auraCam">
+        <video id="auraVideo" autoplay playsinline muted disablePictureInPicture></video>
+        <canvas id="auraCanvas"></canvas>
+        
+        <div class="ai-overlay hidden" id="aiOverlay">
+          <div class="ai-box" id="aiBoxText">AI ALERT</div>
+          <div class="ai-text" id="aiText">Status</div>
+        </div>
+
+        <div class="cam-status" id="auraStatus">Camera idle...</div>
+        <div class="cam-dot" id="auraDot"></div>
+      </div>
+
+      <div class="aura-controls">
+        <button class="big-btn" id="auraStart">Camera ON karo</button>
+        <button class="warn-btn hidden" id="simulateBtn">Simulate Scene Change</button>
+      </div>
+
+      <div class="log" id="auraLog"></div>
+    </div>
+  </section>
+
+  <!-- SMRITI -->
+  <section id="smriti" class="screen">
+    <div class="screen-body">
+      <div class="lead-row">
+        <p class="lead">Ghar ka permanent memory. Poochho — jawab milega.</p>
+        <button id="smritiVoiceToggle" class="mic-btn">🎤 Listen</button>
+      </div>
+
+      <div class="chat" id="smritiChat"></div>
+
+      <div class="quick-asks">
+        <button class="chip" data-q="Where is my wallet?">Where is my wallet?</button>
+        <button class="chip" data-q="Where are my keys?">Where are my keys?</button>
+        <button class="chip" data-q="Where is my phone?">Where is my phone?</button>
+      </div>
+
+      <div class="input-row">
+        <input type="text" id="smritiInput" placeholder="Ask or speak...">
+        <button id="smritiSend">➤</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPARSH -->
+  <section id="sparsh" class="screen">
+    <div class="screen-body">
+      <p class="lead">Kaan band. Haath sunega. Vibration language me duniya samjho.</p>
+      <div class="vib-grid">
+        <button class="vib-btn left" data-pattern="left"><span>◀</span><small>Left object</small></button>
+        <button class="vib-btn front" data-pattern="front"><span>▲</span><small>Aage khatra</small></button>
+        <button class="vib-btn right" data-pattern="right"><span>▶</span><small>Right object</small></button>
+        <button class="vib-btn door" data-pattern="door"><span>🚪</span><small>Darwaza</small></button>
+      </div>
+      <div class="vib-note">
+        <b>Vibration map:</b><br>
+        Left = left vibration · Aage khatra = tez (long) · Darwaza = 2 choti
+      </div>
+      <div class="log" id="sparshLog"></div>
+    </div>
+  </section>
+
+  <!-- SAATHI -->
+  <section id="saathi" class="screen">
+    <div class="screen-body">
+      <p class="lead">Emotion Radar. Samne wala khush hai ya gussa — Saathi kaan me bolega.</p>
+      <div class="emotion-grid">
+        <button class="emo-card" data-emo="fake_smile">🙂<small>Fake Smile</small></button>
+        <button class="emo-card" data-emo="happy_friend">😄<small>Dost Hass Raha</small></button>
+        <button class="emo-card" data-emo="angry">😠<small>Gussa</small></button>
+        <button class="emo-card" data-emo="nervous">😰<small>Nervous</small></button>
+      </div>
+      <div class="saathi-output" id="saathiOutput">Kisi emotion par tap karo...</div>
+    </div>
+  </section>
+
+  <!-- DISHA -->
+  <section id="disha" class="screen">
+    <div class="screen-body">
+      <p class="lead">3 mode, 1 super-demo. Micro-navigation = Aazadi.</p>
+      <div class="tabs">
+        <button class="tab active" data-mode="thali">🍽️ Thali</button>
+        <button class="tab" data-mode="letsgo">☕ LetsGo</button>
+        <button class="tab" data-mode="aazad">🏬 AAZAD</button>
+      </div>
+      <div class="disha-panel" id="dishaPanel"></div>
+    </div>
+  </section>
+
+  <!-- SANGAM -->
+  <section id="sangam" class="screen">
+    <div class="screen-body">
+      <p class="lead">Community & Inclusive Fun. 3 mode — Swar, Khel, Setu.</p>
+      <div class="tabs">
+        <button class="tab active" data-sangam="swar">🎙️ Swar</button>
+        <button class="tab" data-sangam="khel">♟️ Khel</button>
+        <button class="tab" data-sangam="setu">🤝 Setu</button>
+      </div>
+      <div class="sangam-panel" id="sangamPanel"></div>
+    </div>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

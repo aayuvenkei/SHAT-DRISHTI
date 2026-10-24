@@ -1,0 +1,125 @@
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',system-ui,sans-serif; }
+body { background:#00060a; color:#8ffcff; min-height:100vh; overflow-x:hidden; }
+.hidden { display:none !important; }
+
+#homeScreen { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+.home-wrap { max-width:520px; width:100%; }
+.brand { text-align:center; margin-bottom:24px; }
+.brand-icon { font-size:56px; margin-bottom:8px; }
+.brand h1 { font-size:26px; letter-spacing:4px; color:#00d4ff; text-shadow:0 0 15px rgba(0,212,255,0.4); }
+.sub { font-size:14px; color:#3a8a9a; margin-top:6px; letter-spacing:1px; }
+.home-note { font-size:12px; color:#1a5c7a; text-align:center; margin-bottom:24px; }
+
+.chakra-list { display:flex; flex-direction:column; gap:10px; }
+.chakra-item {
+  display:flex; align-items:center; gap:14px;
+  background:#010d14; border:1px solid #0d3347;
+  border-radius:12px; padding:14px 18px; cursor:pointer;
+  transition:all .2s;
+}
+.chakra-item:hover { border-color:#00d4ff; transform:translateX(4px); box-shadow:0 0 15px rgba(0,212,255,0.1); }
+.ci { font-size:24px; }
+.chakra-item b { font-size:14px; color:#00d4ff; letter-spacing:1px; }
+.chakra-item small { display:block; font-size:11px; color:#3a8a9a; margin-top:2px; }
+.arrow { margin-left:auto; color:#0f4060; font-size:22px; }
+.foot { text-align:center; font-size:11px; color:#0f4060; margin-top:26px; letter-spacing:1px; }
+
+#appScreen { min-height:100vh; padding-bottom:40px; }
+.topbar {
+  display:flex; align-items:center; gap:12px;
+  padding:14px 18px; background:#000d14;
+  border-bottom:1px solid #0d3347; position:sticky; top:0; z-index:10;
+}
+#backBtn {
+  background:#010d14; border:1px solid #0d3347; color:#8ffcff;
+  width:36px; height:36px; border-radius:10px; font-size:22px;
+  cursor:pointer; line-height:1;
+}
+#backBtn:hover { border-color:#00d4ff; color:#00d4ff; }
+#screenTitle { font-size:16px; color:#00d4ff; letter-spacing:1px; }
+.screen-body { padding:20px 18px; max-width:600px; margin:0 auto; }
+.lead-row { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px; gap:10px; }
+.lead { font-size:13px; color:#5ab8cc; line-height:1.6; }
+.lead b { color:#00d4ff; }
+
+.mic-btn {
+  background:#001a22; border:1px solid #0d3347; color:#00d4ff;
+  padding:6px 12px; border-radius:20px; font-size:11px; font-weight:bold;
+  cursor:pointer; white-space:nowrap; transition:.2s;
+}
+.mic-btn:hover { border-color:#00d4ff; background:#002b3d; }
+.mic-btn.listening { background:#3a1d1d; color:#ff3355; border-color:#ff3355; animation: pulse 1s infinite; }
+@keyframes pulse { 0%{opacity:1;} 50%{opacity:0.6;} 100%{opacity:1;} }
+
+/* AURA */
+.cam-box {
+  position:relative; background:#000; border:1px solid #0d3347;
+  border-radius:14px; height:240px; display:flex; align-items:center;
+  justify-content:center; margin-bottom:14px; overflow:hidden;
+}
+#auraVideo { position:absolute; top:0; left:0; width:100% !important; height:100% !important; object-fit:cover !important; display:none; z-index:1; }
+#auraVideo.active { display:block !important; }
+#auraCanvas { position:absolute; top:0; left:0; width:100% !important; height:100% !important; object-fit:cover !important; display:none; z-index:2; pointer-events:none; }
+#auraCanvas.active { display:block !important; }
+
+.cam-status { position:absolute; top:10px; left:12px; font-size:11px; color:#8ffcff; z-index:5; background:rgba(0,0,0,0.7); padding:4px 10px; border-radius:4px; }
+.cam-dot { position:absolute; top:14px; right:12px; width:10px; height:10px; border-radius:50%; background:#334155; z-index:5; }
+.cam-dot.on { background:#ff3355; box-shadow:0 0 10px #ff3355; animation: blink 1s infinite; }
+@keyframes blink { 0%{opacity:1;} 50%{opacity:0.3;} 100%{opacity:1;} }
+
+.ai-overlay {
+  position:absolute; inset:0; background:rgba(255, 51, 85, 0.2);
+  border:2px solid #ff3355; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; z-index:10;
+  animation: alertFlash 0.8s infinite alternate;
+}
+@keyframes alertFlash { from{background:rgba(255,51,85,0.1);} to{background:rgba(255,51,85,0.4);} }
+.ai-box { background:#ff3355; color:#fff; font-weight:bold; padding:6px 14px; border-radius:8px; font-size:14px; letter-spacing:1px; margin-bottom:8px; }
+.ai-text { color:#fff; font-size:16px; font-weight:600; text-shadow:0 2px 4px black; text-align:center; padding:0 10px; }
+
+.aura-controls { display:flex; flex-direction:column; gap:10px; margin-bottom:16px; }
+.big-btn { width:100%; padding:14px; border:none; border-radius:12px; background:#00d4ff; color:#00060a; font-size:14px; font-weight:bold; cursor:pointer; transition:.2s; }
+.big-btn:hover { background:#38bdf8; }
+.warn-btn { width:100%; padding:12px; border:none; border-radius:12px; background:#ff3355; color:white; font-size:14px; font-weight:600; cursor:pointer; transition:.2s; }
+.warn-btn:hover { background:#dc2626; }
+
+.log { margin-top:16px; font-size:12px; color:#3a8a9a; line-height:1.7; }
+.log .entry { background:#010d14; border-left:3px solid #00d4ff; padding:8px 12px; border-radius:6px; margin-bottom:6px; animation:slideIn .3s ease; }
+@keyframes slideIn { from{opacity:0;transform:translateX(-8px);} to{opacity:1;transform:translateX(0);} }
+
+/* SMRITI */
+.chat { display:flex; flex-direction:column; gap:8px; max-height:260px; overflow-y:auto; margin-bottom:14px; padding-right:4px; }
+.msg { padding:10px 14px; border-radius:12px; font-size:13px; max-width:85%; line-height:1.5; }
+.msg.user { background:#00d4ff; color:#00060a; align-self:flex-end; }
+.msg.bot { background:#010d14; color:#8ffcff; align-self:flex-start; border:1px solid #0d3347; }
+.msg.warn { background:#3a1d1d; color:#fca5a5; border-left:3px solid #ff3355; align-self:flex-start; }
+.quick-asks { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+.chip { background:#010d14; border:1px solid #0d3347; color:#3a8a9a; padding:7px 12px; border-radius:20px; font-size:11px; cursor:pointer; }
+.chip:hover { border-color:#00d4ff; color:#00d4ff; }
+.input-row { display:flex; gap:8px; }
+.input-row input { flex:1; background:#010d14; border:1px solid #0d3347; border-radius:10px; padding:12px; color:#8ffcff; font-size:13px; outline:none; }
+.input-row input:focus { border-color:#00d4ff; }
+.input-row button { background:#00d4ff; border:none; color:#00060a; width:48px; border-radius:10px; font-size:18px; cursor:pointer; }
+
+/* SPARSH */
+.vib-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+.vib-btn { background:#010d14; border:1px solid #0d3347; border-radius:14px; padding:20px 10px; color:#8ffcff; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:6px; transition:.2s; }
+.vib-btn span { font-size:26px; }
+.vib-btn small { font-size:11px; color:#3a8a9a; }
+.vib-btn:hover { border-color:#00d4ff; background:#001a22; }
+.vib-btn.active { border-color:#00d4ff; box-shadow:0 0 16px rgba(0,212,255,.3); }
+.vib-note { background:#010d14; border-left:3px solid #00d4ff; padding:12px; border-radius:8px; font-size:12px; color:#5ab8cc; line-height:1.7; margin-bottom:14px; }
+
+/* SAATHI */
+.emotion-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
+.emo-card { background:#010d14; border:1px solid #0d3347; border-radius:14px; padding:18px 10px; font-size:26px; color:#8ffcff; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:6px; transition:.2s; }
+.emo-card small { font-size:11px; color:#3a8a9a; }
+.emo-card:hover { border-color:#ff6b00; }
+.saathi-output { background:#010d14; border-radius:14px; padding:18px; font-size:14px; color:#00d4ff; line-height:1.7; min-height:70px; border-left:3px solid #ff6b00; }
+
+/* TABS */
+.tabs { display:flex; gap:8px; margin-bottom:14px; }
+.tab { flex:1; background:#010d14; border:1px solid #0d3347; color:#3a8a9a; padding:10px; border-radius:10px; font-size:12px; cursor:pointer; transition:.2s; }
+.tab.active { background:#00d4ff; color:#00060a; border-color:#00d4ff; font-weight:bold; }
+.disha-panel, .sangam-panel { background:#010d14; border-radius:14px; padding:18px; font-size:13px; color:#5ab8cc; line-height:1.8; border-left:3px solid #00d4ff; }
+.disha-panel b, .sangam-panel b { color:#00d4ff; }
